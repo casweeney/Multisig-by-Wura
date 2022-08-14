@@ -22,9 +22,10 @@ contract MultiSig {
 
     function withdrawEther(uint256 _amount) external {
         bool _valid = validOwner();
-        Approve(ID);
+        // require(_valid);
         beneficiary[ID] = msg.sender;
         amount[ID] = _amount;
+        Approve(ID);
         ID++;
     }
 
@@ -42,11 +43,15 @@ contract MultiSig {
 
     function Approve(uint256 id) public {
         bool valid = validOwner();
+
+
         uint256 value = amount[id];
         address _ben = beneficiary[id];
         assert(signed[msg.sender][id] == false);
         signed[msg.sender][id] = true;
         noOfApproval[id] = noOfApproval[id] + 1;
+
+        
         if (noOfApproval[id] >= Quorum) {
             _approved[id][noOfApproval[id]] = true;
             payable(_ben).transfer(value);

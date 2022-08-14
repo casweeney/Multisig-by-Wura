@@ -16,8 +16,10 @@ contract MultiSigFactory {
     function cloneMultiSig(address[] memory _validOwners) external returns (MultiSig NewMS, uint256 _length)
     {
         NewMS = new MultiSig(_validOwners);
+
         multiSigAddresses.push(NewMS);
         _length = multiSigAddresses.length;
+        
         emit newClone(NewMS, _length);
     }
 
