@@ -24,14 +24,22 @@ async function main() {
         valid5.address,
     ]);
 
+    let clonedAddr = await multisigFactory.ClonedAddresses();
+
 
     let result = await cloned.wait();
+
     // let length = (await cloned.wait()).logs[0].topics.length;
-    // let result1 = (await cloned.wait()).logs[0].topics[0];
+    let result1 = (await cloned.wait()).logs[0].topics;
     // let result2 = (await cloned.wait()).logs[0].topics[1];
     // let result3 = (await cloned.wait()).logs[0].topics[2];
 
-    console.log(result, "factory cloned successfully");
+    // console.log("Log length: ", length);
+
+    // console.log(result, "factory cloned successfully");
+    console.log(result, "This is result");
+    console.log(result1, "Hello result1");
+    console.log(clonedAddr, "Cloned addresses");
     // console.log("we are the logger", result1, result2, result3);
 
 
