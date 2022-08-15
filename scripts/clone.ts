@@ -67,20 +67,20 @@ async function main() {
   await helpers.impersonateAccount(address8);
   const impersonatedSigner8 = await ethers.getSigner(address8);
 
-  const withdrawal = await (await MULTISIG.connect(impersonatedSigner).withdrawEther(_value)).wait();
+  // const withdrawal = await (await MULTISIG.connect(impersonatedSigner).withdrawEther(_value)).wait();
 
-  const approve1 = await MULTISIG.connect(impersonatedSigner1).Approve(0);
-  const approve2 = await MULTISIG.connect(impersonatedSigner2).Approve(0);
-  const approve3 = await MULTISIG.connect(impersonatedSigner3).Approve(0);
-  const approve4 = await MULTISIG.connect(impersonatedSigner4).Approve(0);
-  const approve5 = await MULTISIG.connect(impersonatedSigner5).Approve(0);
-  const approve6 = await MULTISIG.connect(impersonatedSigner6).Approve(0);
-  const approve7 = await MULTISIG.connect(impersonatedSigner7).Approve(0);
-  const approve8 = await MULTISIG.connect(impersonatedSigner8).Approve(0);
+  // const approve1 = await MULTISIG.connect(impersonatedSigner1).Approve(8);
+  // const approve2 = await MULTISIG.connect(impersonatedSigner2).Approve(8);
+  // const approve3 = await MULTISIG.connect(impersonatedSigner3).Approve(8);
+  // const approve4 = await MULTISIG.connect(impersonatedSigner4).Approve(8);
+  // const approve5 = await MULTISIG.connect(impersonatedSigner5).Approve(8);
+  // const approve6 = await MULTISIG.connect(impersonatedSigner6).Approve(8);
+  // const approve7 = await MULTISIG.connect(impersonatedSigner7).Approve(8);
+  // const approve8 = await MULTISIG.connect(impersonatedSigner8).Approve(8);
 
   const impBal = await impersonatedSigner.getBalance();
 
-  console.log(withdrawal);
+  // console.log(withdrawal);
 
   console.log(Number(impBal._hex));
 
