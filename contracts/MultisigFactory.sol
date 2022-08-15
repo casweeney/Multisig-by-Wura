@@ -12,7 +12,7 @@ contract MultiSigFactory {
 
     MultiSig[] multiSigAddresses;
     event newClone(MultiSig indexed, uint256 indexed position);
-    event anotherClone(MultiSig indexed, uint256 indexed position);
+    // event anotherClone(MultiSig indexed, uint256 indexed position);
 
     function cloneMultiSig(address[] memory _validOwners) external returns (MultiSig NewMS, uint256 _length)
     {
@@ -22,7 +22,7 @@ contract MultiSigFactory {
         _length = multiSigAddresses.length;
         
         emit newClone(NewMS, _length);
-        emit anotherClone(NewMS, _length);
+        // emit anotherClone(NewMS, _length);
     }
 
     function ClonedAddresses() external view returns (MultiSig[] memory _multisig)

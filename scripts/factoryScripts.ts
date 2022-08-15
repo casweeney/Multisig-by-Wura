@@ -16,37 +16,7 @@ async function main() {
         multisigFactory.address
     );
 
-    let cloned = await multisigFactory.cloneMultiSig([
-        valid1.address,
-        valid2.address,
-        valid3.address,
-        valid4.address,
-        valid5.address,
-    ]);
-
-    let clonedAddr = await multisigFactory.ClonedAddresses();
-
-
-    let result = await cloned.wait();
-
-    // let length = (await cloned.wait()).logs[0].topics.length;
-    let result1 = (await cloned.wait()).logs[0].topics;
-    // let result2 = (await cloned.wait()).logs[0].topics[1];
-    // let result3 = (await cloned.wait()).logs[0].topics[2];
-
-    // console.log("Log length: ", length);
-
-    // console.log(result, "factory cloned successfully");
-    console.log(result, "This is result");
-    console.log(result1, "Hello result1");
-    console.log(clonedAddr, "Cloned addresses");
-    // console.log("we are the logger", result1, result2, result3);
-
-
-
-    // const clone2 = await multisigFactory
-    // .connect(valid2)
-    // .cloneMultiSig([
+    // let cloned = await multisigFactory.cloneMultiSig([
     //     valid1.address,
     //     valid2.address,
     //     valid3.address,
@@ -54,13 +24,48 @@ async function main() {
     //     valid5.address,
     // ]);
 
-    // let result = await clone2.wait();
+    // let clonedAddr = await multisigFactory.ClonedAddresses();
+
+
+    // let result = await cloned.wait();
+
+    // @ts-ignore
+    // const events = result.events[0].args
+
+    // console.log(events, "EVENTS HERE");
+
+    // let length = (await cloned.wait()).logs[0].topics.length;
+    // let result1 = (await cloned.wait()).logs[0].topics;
+    // let result2 = (await cloned.wait()).logs[0].topics[1];
+    // let result3 = (await cloned.wait()).logs[0].topics[2];
+
+    // console.log("Log length: ", length);
+
+    // console.log(result, "factory cloned successfully");
+    // console.log(result, "This is result");
+    // console.log(result1, "Hello result1");
+    // console.log(clonedAddr, "Cloned addresses");
+    // console.log("we are the logger", result1, result2, result3);
+
+
+
+    const clone2 = await multisigFactory
+    .connect(valid2)
+    .cloneMultiSig([
+        valid1.address,
+        valid2.address,
+        valid3.address,
+        valid4.address,
+        valid5.address,
+    ]);
+
+    let result = await clone2.wait();
     // let length = (await clone2.wait()).logs[0].topics.length;
     // let result1 = (await clone2.wait()).logs[0].topics[0];
     // let result2 = (await clone2.wait()).logs[0].topics[1];
     // let result3 = (await clone2.wait()).logs[0].topics[2];
 
-    // console.log(result, "factory cloned successfully");
+    console.log(result, "factory cloned successfully");
     // console.log("we are the logger", result1, result2, result3);
 }
 

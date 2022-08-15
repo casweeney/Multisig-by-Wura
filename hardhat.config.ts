@@ -18,6 +18,11 @@ const API_TOKEN = process.env.API_TOKEN;
 module.exports = {
   solidity: "0.8.9",
   networks: {
+    hardhat: {
+      forking: {
+        url: INFURA_ROPSTEN_API_KEY_URL,
+      }
+    },
     rinkeby: {
       url: ALCHEMY_RINKEBY_API_KEY_URL,
       accounts: [ACCOUNT_PRIVATE_KEY],
